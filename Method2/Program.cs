@@ -12,25 +12,34 @@ namespace Method2
         static int score;
         static void Main(string[] args)
         {
+            health = 100;
             ShowHUD();
 
+            Console.WriteLine("Press any key to see the effects of taking damage from an enemy and then defeating it.");
             Console.ReadKey(true);
 
-            Console.WriteLine("After taking damage from an enemy and then defeating it.");
 
             TakeDamage(5);
             AddScore(10, 1);
             ShowHUD();
+
+            Console.WriteLine("Press any key to recieve a score multiplier of 3.");
+
             Console.ReadKey(true);
+
+            AddScore(0, 3);
+            ShowHUD();
+
+            Console.WriteLine("Good job! Press any key to close.");
             Console.ReadKey(true);
         }
 
         static void ShowHUD()
         {
-            health = 100;
+
             Console.WriteLine("---------");
-            Console.WriteLine("Health"+ health);
-            Console.WriteLine("Score"+ score);
+            Console.WriteLine("Health" + health);
+            Console.WriteLine("Score" + score);
             Console.WriteLine("---------");
 
 
@@ -43,9 +52,10 @@ namespace Method2
 
         static void AddScore(int pointsearned, int scoremp)
         {
-            score = pointsearned * scoremp;
-        }
+            score = pointsearned + score * scoremp;
 
+        }
+        
 
     }
 }
