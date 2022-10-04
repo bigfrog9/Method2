@@ -30,7 +30,15 @@ namespace Method2
             AddScore(0, 3);
             ShowHUD();
 
+            Console.WriteLine("Press Any Key to recieve health depending on the enemy you defeated.");
+
+            Console.ReadKey(true);
+
+            EnemyKill(1, 0);
+            ShowHUD();
+
             Console.WriteLine("Good job! Press any key to close.");
+            
             Console.ReadKey(true);
         }
 
@@ -38,8 +46,8 @@ namespace Method2
         {
 
             Console.WriteLine("---------");
-            Console.WriteLine("Health" + health);
-            Console.WriteLine("Score" + score);
+            Console.WriteLine("Health: " + health);
+            Console.WriteLine("Score: " + score);
             Console.WriteLine("---------");
 
 
@@ -55,7 +63,11 @@ namespace Method2
             score = pointsearned + score * scoremp;
 
         }
-        
+        static void EnemyKill(int enemy1, int enemy2)
+        {
+            health = health + enemy1 * 3;
+            health = health + enemy2 * 5;
+        }
 
     }
 }
